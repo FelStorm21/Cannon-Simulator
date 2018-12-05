@@ -1,9 +1,10 @@
 package me.vmamakers.cannonsim;
 
-import javax.swing.SwingUtilities;
-
 public class Main {
-//	public static void main(String[] args) {
-//		new Plot();
-//	}
+	public static void main(String[] args) {
+//		ProcessingSketch sketch = new ProcessingSketch();
+//		sketch.run();
+		
+		SwingGui gui = new SwingGui();
+	}
 }
