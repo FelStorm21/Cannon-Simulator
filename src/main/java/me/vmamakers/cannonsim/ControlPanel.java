@@ -9,18 +9,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import lombok.Getter;
-import lombok.Setter;
-
 public class ControlPanel extends JPanel {
-	
-	@Getter @Setter PhysicsEnvironment phys;
 	
 	public ControlPanel() {
 		setPreferredSize(new Dimension(SwingGui.frameWidth/2 - 10, SwingGui.frameHeight/2 - 10));
 		setBorder(BorderFactory.createLineBorder(Color.WHITE, 5));
 	}
 	
+	/**
+	 * Creates and sets up all the input textfields for the {@link ControlPanel controlPanel}.
+	 * @return An array containing all the inputs.
+	 */
 	public JTextField[] setupTextFields() {
 		JTextField[] returnArray = new JTextField[4];
 		
@@ -51,6 +50,10 @@ public class ControlPanel extends JPanel {
 		return returnArray;
 	}
 	
+	/**
+	 * Creates and sets up all the buttons for the {@link ControlPanel controlPanel}.
+	 * @return An array containing all the buttons.
+	 */
 	public JButton[] setupButtons() {
 		JButton[] returnArray = new JButton[3];
 		

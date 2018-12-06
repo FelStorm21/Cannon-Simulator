@@ -13,8 +13,8 @@ public class PhysicsEnvironment {   //think about changing to an interface
 	@Getter @Setter private int x0 = 0;
 	@Getter @Setter private int y0 = 0;
 	
-	@Getter @Setter private float v0;
-	@Getter @Setter private float angle;
+	@Getter @Setter private float v0 = 75;
+	@Getter @Setter private float angle = 45;
 	
 	private float[] parabolicCoeff;
 	private float[] exponentialCoeff;
@@ -33,18 +33,10 @@ public class PhysicsEnvironment {   //think about changing to an interface
 	public Map<Float, Float> calculateParabolicTraj() {
 		calculateParabolicCoeff();
 		Map<Float, Float> result = new LinkedHashMap<>();
-		for (int i = 0; i <= canvas.getWidth() - 10; i += 10) {
+		for (int i = x0; i <= canvas.getWidth() - 10; i += 10) {
 			result.put((float) i, parabolicCoeff[0] * (i - x0) * (i - x0) + parabolicCoeff[1] * (i - x0) + parabolicCoeff[2]);
 		}
 		result.forEach((k, v) -> System.out.println("y(" + k + ") = " + v));
-		return result;
-	}
-	
-	public Map<Float, Float> calculateExponentialTraj() {
-		Map<Float, Float> result = new LinkedHashMap<>();
-		for (int i = 0; i <= canvas.getWidth() - 10; i += 10) {
-			result.put((float) i, exponentialCoeff[0] * (float) Math.exp(exponentialCoeff[1] * i) + exponentialCoeff[2]);
-		}
 		return result;
 	}
 
@@ -54,14 +46,6 @@ public class PhysicsEnvironment {   //think about changing to an interface
 
 	public void setParabolicCoeff(int coeff, int index) {
 		this.parabolicCoeff[index] = coeff;
-	}
-
-	public float getExponentialCoeff(int index) {
-		return exponentialCoeff[index];
-	}
-
-	public void setExponentialCoeff(int coeff, int index) {
-		this.exponentialCoeff[index] = coeff;
 	}
 	
 }

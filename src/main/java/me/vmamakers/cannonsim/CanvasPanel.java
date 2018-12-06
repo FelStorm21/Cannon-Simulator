@@ -33,9 +33,14 @@ public class CanvasPanel extends JPanel {
 		setBackground(color);
 		
 		g.setColor(Color.BLACK);
+		
+		int ovalWidth = 6;
+		int ovalHeight = 6;
+		
 		trajectory.forEach((k,v) -> {
 //			if (k != null) {
-				g.drawOval((int) (physicsOrigin[0] + k), (int) (physicsOrigin[1] - v), 5, 5);  //measured at upper left corner, not center
+			
+				g.drawOval((int) (physicsOrigin[0] + k - ovalWidth/2), (int) (physicsOrigin[1] - v - ovalHeight/2), ovalWidth, ovalHeight);  //measured at upper left corner, not center
 //			}
 		});
 	}
